@@ -30,8 +30,8 @@ npm install axios cheerio node-cron
 也需要修改 CONFIG 中各項參數
 
     const CONFIG = {
-    CHANNEL_ACCESS_TOKEN:  "", // LINE Messaging API 的 Channel Access Token
-    USER_ID:  "", // 你的 LINE User ID (U開頭)
+    CHANNEL_ACCESS_TOKEN:  "_CHANNEL_ACCESS_TOKEN_", // LINE Messaging API 的 Channel Access Token
+    USER_ID:  "_USER_ID_", // 你的 LINE User ID (U開頭)
     TARGET_URL:  "https://tradead.tixplus.jp/wbc2026", // tixplus 售票網址
     CHECK_INTERVAL:  "*/5 * * * *", // cron 格式，每 5 分鐘檢查一次（可自行調整）
     NUMBER_OF_REMINDERS:  1, // 刊登數量提醒，預設 1，意即只要有刊登就會提醒
