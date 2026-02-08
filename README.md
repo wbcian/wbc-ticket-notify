@@ -29,32 +29,37 @@ npm install
 bash setup.sh
 ```
 
-或手動建立 `.env` 檔：
+或手動建立 `.env` 檔（參考 `.env.example`）。
 
-```
-CHANNEL_ACCESS_TOKEN=你的token
-USER_ID=U你的userid
-```
+想修改設定？再跑一次 `bash setup.sh` 即可，會顯示目前的值，直接按 Enter 保留不變。
 
 ## 執行
 
 ```bash
-node tixplus-wbc-notify.js
+# 測試一次（確認設定正確，跑完自動結束）
+npm run check
+
+# 持續監控（預設每 5 分鐘檢查一次，按 Ctrl+C 停止）
+npm start
 ```
 
-## 定時執行
+建議先用 `npm run check` 確認能正常收到 LINE 通知，再用 `npm start` 長期監控。
 
-編輯 `tixplus-wbc-notify.js` 底部，將單次執行改為 cron 排程：
+> 想了解腳本內部運作細節，請參考 [HOW-IT-WORKS.md](./HOW-IT-WORKS.md)。
 
-```js
-// 註解掉這行
-// checkTicketsAndNotify();
+## 進階設定
 
-// 打開這段（預設每 5 分鐘檢查一次）
-cron.schedule(CONFIG.CHECK_INTERVAL, () => {
-  checkTicketsAndNotify();
-});
-```
+在 `.env` 中可調整以下選項（不填則使用預設值）：
+
+| 變數 | 說明 | 預設值 |
+|------|------|--------|
+| `CHECK_INTERVAL` | 檢查間隔（cron 語法） | `*/5 * * * *` |
+| `MIN_LISTINGS` | 刊登數門檻，低於此數不通知 | `1` |
+| `AXIOS_TIMEOUT` | HTTP 請求逾時（毫秒） | `15000` |
+
+## 狀態追蹤
+
+腳本會自動建立 `.notify-state.json` 記錄已通知過的賽事狀態，避免重複發送相同通知。刪除此檔可重置狀態。
 
 ## 致謝
 

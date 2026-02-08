@@ -4,7 +4,9 @@
   "description": "可依自己習慣及使用環境佈署",
   "main": "tixplus-wbc-notify.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node tixplus-wbc-notify.js",
+    "check": "node tixplus-wbc-notify.js --once",
+    "setup": "bash setup.sh"
   },
   "keywords": [],
   "author": "",
