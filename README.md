@@ -13,7 +13,29 @@
      - **Your user ID**（Basic settings 頁籤最下方，U 開頭）
    - 用 LINE 掃 QR Code **加自己的 bot 好友**（不加就收不到通知）
 
-## 安裝
+## 下載與安裝
+
+**方法一：直接下載（最簡單，不需要裝 git）**
+
+1. 點擊本頁右上角綠色 **Code** 按鈕 → **Download ZIP**
+2. 解壓縮到你想放的位置
+3. 打開終端機（Mac 搜尋「終端機」；Windows 搜尋「命令提示字元」或「PowerShell」）
+4. 用 `cd` 指令進入解壓後的資料夾，例如：
+   ```bash
+   cd ~/Downloads/wbc-ticket-notify-main
+   ```
+5. 安裝套件：
+   ```bash
+   npm install
+   ```
+
+**方法二：用 git clone**
+
+需要先安裝 git：
+- **Mac**：打開終端機輸入 `git`，系統會自動提示安裝
+- **Windows**：到 [git-scm.com](https://git-scm.com/) 下載安裝，全部下一步即可
+
+安裝好後執行：
 
 ```bash
 git clone https://github.com/wbcian/wbc-ticket-notify.git
